@@ -2,6 +2,7 @@ package esepunittests
 
 type GradeCalculator struct {
 	grades []Grade
+	passFail bool
 }
 
 type GradeType int
@@ -28,9 +29,10 @@ type Grade struct {
 	Type  GradeType
 }
 
-func NewGradeCalculator() *GradeCalculator {
+func NewGradeCalculator(passFail ...bool) *GradeCalculator {
 	return &GradeCalculator{
 		grades: make([]Grade, 0),
+		passFail: len(passFail) > 0 && passFail[0],
 	}
 }
 
